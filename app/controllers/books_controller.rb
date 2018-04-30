@@ -1,10 +1,12 @@
 class BooksController < ApplicationController
+  before_action :set_book ,only: [:show,:update,:edit,:destroy]
+
   def index
     @books = Book.all
   end
 
   def show
-    @book = Book.find(params[:id])
+
   end
 
   def new
@@ -24,24 +26,28 @@ class BooksController < ApplicationController
     ### ここまで
   end
   def update
-    @book=Book.find(params[:id])
+
     @book.update(book_params)
     redirect_to(book_path(@book))
   end
   def edit
-    @book=Book.find(params[:id])
+
   end
 
   def destroy
-    @book=Book.find(params[:id])
+    
     @book.destroy
     redirect_to(books_path)
   end
 
 
+
   ### ここから追記
   private
 
+def set_book
+  @book=Book.find(params[:id])
+end
   # params.require(key).permit(filter)
   # key
   #   Strong Parameters を適用したい params の key を指定する。
