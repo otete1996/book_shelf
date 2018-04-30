@@ -1,0 +1,21 @@
+<h1>book登録フォーム</h1>
+<%= form_with model: @book, local: true do |form| %>
+<p>
+  商品名：<br>
+  <%= form.text_field :name %>
+</p>
+<p>
+  価格：<br>
+  <%= form.number_field :price %>
+</p>
+ <p>
+  出版社：<br>
+  <%= form.text_field :publish %>
+</p>
+<p>
+  刊行日：<br>
+  <%= form.date_field :publish_date %>
+</p>
+<%= form.submit"登録" %>
+
+<% end %>

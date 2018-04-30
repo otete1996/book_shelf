@@ -1,0 +1,10 @@
+<h1>出品商品一覧</h1>
+<ul>
+  <% @books.each do |book| %>
+  <li><%=link_to(book.name,book_path(book)) %></li>
+
+
+  <% end %>
+
+</ul>
+<%=link_to("出品する",new_book_path) %>

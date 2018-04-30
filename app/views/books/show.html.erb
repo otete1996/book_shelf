@@ -1,0 +1,21 @@
+<p>
+  <b>商品名：<%= @book.name %></b>
+</p>
+<p>
+  <b>価格：<%= @book.price %></b>
+
+</p>
+
+<p>
+<b>出版社：<%= @book.publish %></b>
+</p>
+<p>
+  <b>刊行：<%= @book.publish_date %></b>
+</p>
+
+
+<p>
+<%= link_to("編集",edit_book_path(@book)) %>
+<%= link_to("削除",book_path(@book), method: :delete) %>
+
+</p>
