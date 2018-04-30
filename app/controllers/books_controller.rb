@@ -19,23 +19,34 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     # 上の行はインスタンスを作っただけ。saveメソッドで保存しないと、消える。
     # モデルのデータをデータベースに反映
-    @book.save
+    if @book.save
+      redirect_to books_path
+    else
+      flash.now[:alert]=@book.errors.full_messages
+      render :new
+    end
+
 
     # 処理の後はindex画面を表示する
-    redirect_to books_path
+
     ### ここまで
   end
   def update
 
-    @book.update(book_params)
-    redirect_to(book_path(@book))
+    if @book.update(book_params)
+
+      redirect_to(book_path(@book))
+    else
+      flash.now[:alert]=@book.errors.full_messages
+      render :edit
+    end
   end
   def edit
 
   end
 
   def destroy
-    
+
     @book.destroy
     redirect_to(books_path)
   end

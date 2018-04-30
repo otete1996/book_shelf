@@ -1,4 +1,11 @@
 <h1>book登録フォーム</h1>
+<% if flash[:alert].present? %>
+<% flash[:alert].each do |value| %>
+<%= content_tag(:div,value) %>
+<%end %>
+<% end %>
+
+
 <%= form_with model: @book, local: true do |form| %>
 <p>
   商品名：<br>
