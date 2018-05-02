@@ -1,4 +1,5 @@
 class Book < ApplicationRecord
+  has_many :reviews
   validates :name, presence: true, length:{maximum: 20}
   validates :publish, presence: true
   validates :price, presence: true
