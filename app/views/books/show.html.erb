@@ -15,7 +15,9 @@
 <h3>レビュー一覧</h3>
 <ul>
 <% @book.reviews.each do |review| %>
-<li><%= review.body %>- <%= review.created_at %></li>
+<li><%= review.body %>- <%= review.created_at %>
+  <%= link_to("削除",review_path(review),method: :delete) %>
+</li>
 <% end %>
 </ul>
 
